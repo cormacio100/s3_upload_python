@@ -8,7 +8,8 @@ import hmac
 import logging
 import os
 import time
-import urllib
+#import urllib
+import six.moves.urllib as urllib
 #import urllib.parse
 from urlparse import urlparse
 from hashlib import sha1
