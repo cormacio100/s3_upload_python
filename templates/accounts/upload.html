@@ -42,10 +42,11 @@
                     postData.append(key, s3Data.fields[key]);
                 }
                 postData.append('file', file);
-
+                console.log('UPLOADING THE FILE')
                 xhr.onreadystatechange = function() {
                     if(xhr.readyState === 4){
                         if(xhr.status === 200 || xhr.status === 204){
+                            console.log('SUCCESS SO FAR')
                             document.getElementById("preview").src = url;
                             document.getElementById("avatar-url").value = url;
                         }

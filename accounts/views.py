@@ -76,9 +76,14 @@ def sign_s3(request):
 
 @csrf_exempt
 def submit_form(request):
+    """
     username = request.form['username']
     full_name = request.form['full_name']
     avatar_url = request.form['avatar_url']
+    """
+    username = 'username'
+    full_name = 'full_name'
+    avatar_url = 'avatar_url'
     update_account(username,full_name,avatar_url)
     #return redirect(url_for('accounts/profile'))
     return render(request, 'accounts/profile.html')
