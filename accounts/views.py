@@ -19,6 +19,14 @@ from django.http import HttpResponseRedirect
 from django.http import JsonResponse
 from django.shortcuts import render
 
+##########################################
+#   LOGGING
+##########################################
+import logging
+log = logging.getLogger(__name__)
+
+
+
 
 # Create your views here.
 
@@ -52,6 +60,10 @@ def sign_s3(request):
     AWS_ACCESS_KEY = os.environ.get('AWS_ACCESS_KEY')
     AWS_SECRET_KEY = os.environ.get('AWS_SECRET_KEY')
     S3_BUCKET = os.environ.get('S3_BUCKET')
+
+    log.debug('AWS_ACCESS_KEY :' + AWS_ACCESS_KEY)
+    log.debug('AWS_SECRET_KEY :' + AWS_SECRET_KEY)
+    log.debug('S3_BUCKET :' + S3_BUCKET)
 
     object_name = urllib.parse.quote_plus('1_AIC.jpg')
     #object_name = urllib.parse.quote_plus(request.POST.get('file_name'))
