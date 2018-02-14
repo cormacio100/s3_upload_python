@@ -53,7 +53,8 @@ def sign_s3(request):
     AWS_SECRET_KEY = os.environ.get('AWS_SECRET_KEY')
     S3_BUCKET = os.environ.get('S3_BUCKET')
 
-    object_name = urllib.parse.quote_plus(request.POST.get('file_name'))
+    object_name = urllib.parse.quote_plus('1_AIC.jpg')
+    #object_name = urllib.parse.quote_plus(request.POST.get('file_name'))
     #object_name = urllib.parse.quote_plus(request.GET['file_name'])
     #object_name = urllib.pathname2url(request.GET['file_name'])
     #object_name = urlparse.quote_plus(request.GET['file_name'])
