@@ -11,6 +11,7 @@ import time
 import urllib
 #import urllib.parse
 from hashlib import sha1
+from django.views.decorators.csrf import csrf_exempt
 
 from django.http import HttpResponseRedirect
 from django.http import JsonResponse
@@ -41,6 +42,7 @@ The View:
 Returned:
     -   The pre-signed request data and the location of the eventual file on S3 are returned to the client as JSON
 """
+@csrf_exempt
 def sign_s3(request):
     """
     https://devcenter.heroku.com/articles/s3-upload-python
@@ -72,7 +74,7 @@ def sign_s3(request):
         'url': url,
     })
 
-
+@csrf_exempt
 def submit_form(request):
     username = request.form['username']
     full_name = request.form['full_name']
