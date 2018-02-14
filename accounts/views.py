@@ -9,7 +9,7 @@ import logging
 import os
 import time
 import urllib
-import urllib.parse
+#import urllib.parse
 from urlparse import urlparse
 from hashlib import sha1
 from django.views.decorators.csrf import csrf_exempt
