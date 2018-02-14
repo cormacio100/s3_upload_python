@@ -1,0 +1,1 @@
+web: gunicorn s3_upload_python.wsgi:application
