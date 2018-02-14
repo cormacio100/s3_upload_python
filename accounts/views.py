@@ -58,6 +58,9 @@ def sign_s3(request):
     https://devcenter.heroku.com/articles/s3-upload-python
     """
     AWS_ACCESS_KEY = os.environ.get('AWS_ACCESS_KEY')
+
+    def __str__(self):
+        return self.AWS_ACCESS_KEY
     AWS_SECRET_KEY = os.environ.get('AWS_SECRET_KEY')
     S3_BUCKET = os.environ.get('S3_BUCKET')
 
