@@ -137,9 +137,12 @@
     function getSignedRequest(file){
         console.log('IN FUNCTION getSignedRequest');
         const xhr = new XMLHttpRequest();
-        xhr.open('GET', '/accounts/sign-s3?file-name=${file.name}&file-type=${file.type}');
+        var addr = '/accounts/sign-s3?file-name=${file.name}&file-type=${file.type}';
+        console.log('address being accessed for signature is '+addr);
+        xhr.open('GET', addr);
         xhr.onreadystatechange = () => {
             if(xhr.readyState === 4){
+                console.log('XHR STATUS IS '+xhr.status);
                 if(xhr.status === 200){
                     const response = JSON.parse(xhr.responseText);
                     uploadFile(file, response.data, response.url);
