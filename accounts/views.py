@@ -9,6 +9,7 @@ import logging
 import os
 import time
 import urllib
+import urllib.parse
 from urlparse import urlparse
 from hashlib import sha1
 from django.views.decorators.csrf import csrf_exempt
@@ -51,8 +52,8 @@ def sign_s3(request):
     AWS_SECRET_KEY = os.environ.get('AWS_SECRET_KEY')
     S3_BUCKET = os.environ.get('S3_BUCKET')
 
-    #object_name = urllib.parse.quote_plus(request.GET['file_name'])
-    object_name = urlparse.quote_plus(request.GET['file_name'])
+    object_name = urllib.parse.quote_plus(request.GET['file_name'])
+    #object_name = urlparse.quote_plus(request.GET['file_name'])
     #object_name = urllib.quote_plus(request.GET['file_name'])from urlparse import urlparse
     mime_type = request.GET['file_type']
 
