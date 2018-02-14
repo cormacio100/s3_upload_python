@@ -89,7 +89,7 @@ def submit_form(request):
     return render(request, 'accounts/profile.html')
 
 
-def update_account(request):
+def update_account(username,full_name,avatar_url):
     print 'account updated'
 
 """
