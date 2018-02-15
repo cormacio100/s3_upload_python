@@ -139,7 +139,7 @@
         console.log('file name is '+file.name);
         console.log('file type is '+file.type);
         const xhr = new XMLHttpRequest();
-        var addr = '/accounts/sign_s3?file-name=${file.name}&file-type=${file.type}';
+        var addr = '/accounts/sign_s3?file-name='+file.name+'&file-type='+file.type;
         console.log('address being accessed for signature is '+addr);
         xhr.open('GET', addr);
         xhr.onreadystatechange = () => {
