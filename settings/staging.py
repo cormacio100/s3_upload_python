@@ -11,17 +11,21 @@ DATABASES = {
 }
 
 LOGGING = {
-    'version':1,
-    'disable_existing_loggerds': False,
+    'version': 1,
+    'disable_existing_loggers': False,
     'handlers': {
-        'console':{
+        'console': {
             'class': 'logging.StreamHandler',
         },
     },
     'loggers': {
         'django': {
             'handlers': ['console'],
-            'level': os.getenv('DJANGO_LOG_LEVEL','DEBUG')
-        }
-    }
+            'level': os.getenv('DJANGO_LOG_LEVEL', 'DEBUG'),
+        },
+        'accounts': {
+            'handlers': ['console'],
+            'level': os.getenv('DJANGO_LOG_LEVEL', 'DEBUG'),
+        },
+    },
 }
