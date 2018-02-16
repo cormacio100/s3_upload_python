@@ -42,6 +42,7 @@
             //xhr.open('POST', s3Data.url);
             xhr.open('POST', url);
             xhr.setRequestHeader('x-amz-acl', 'public-read');
+            xhr.setRequestHeader('Access-Control-Allow-Origin', 'https://s3-upload-python.herokuapp.com/');
             const postData = new FormData();
             console.log('s3Data fields is ');
             console.log(s3Data.fields);
