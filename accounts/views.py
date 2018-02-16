@@ -39,6 +39,7 @@ View displays the upload form
 """
 @csrf_exempt
 def upload(request):
+    logger.debug('welcome to UPLOAD')
     return render(request,'accounts/upload.html')
 
 """
@@ -55,7 +56,7 @@ Returned:
 """
 @csrf_exempt
 def sign_s3(request):
-    logger.debug('welcome to sign_s3')
+    logger.debug('welcome to SIGN_S3')
     """
     https://devcenter.heroku.com/articles/s3-upload-python
     """
@@ -113,7 +114,7 @@ def sign_s3(request):
 
 @csrf_exempt
 def submit_form(request):
-
+    logger.debug('welcome to SUBMIT_FORM')
     username = request.form['username']
     full_name = request.form['full_name']
     avatar_url = request.form['avatar_url']
@@ -128,6 +129,7 @@ def submit_form(request):
 
 @csrf_exempt
 def update_account(username,full_name,avatar_url):
+    logger.debug('welcome to UPDATE_ACCOUNT')
     logger.debug('username is '+username)
     logger.debug('full_name is '+full_name)
     logger.debug('avatar_url is '+avatar_url)
