@@ -37,6 +37,7 @@ def get_index(request):
 """
 View displays the upload form
 """
+@csrf_exempt
 def upload(request):
     return render(request,'accounts/upload.html')
 
@@ -125,7 +126,7 @@ def submit_form(request):
     #return redirect(url_for('accounts/profile'))
     return render(request, 'accounts/profile.html')
 
-
+@csrf_exempt
 def update_account(username,full_name,avatar_url):
     logger.debug('username is '+username)
     logger.debug('full_name is '+full_name)
