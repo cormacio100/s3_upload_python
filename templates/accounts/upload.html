@@ -36,17 +36,20 @@
             console.log('url is '+url);
             console.log('s3Data is');
             console.log(s3Data);
-            console.log('s3Data url is ');
-            console.log(s3Data.url);
+            console.log('url is ');
+            console.log(url);
             const xhr = new XMLHttpRequest();
-            xhr.open('POST', s3Data.url);
+            //xhr.open('POST', s3Data.url);
+            xhr.open('POST', url);
             xhr.setRequestHeader('x-amz-acl', 'public-read');
             const postData = new FormData();
             console.log('s3Data fields is ');
             console.log(s3Data.fields);
-            for(key in s3Data.fields){
-                console.log('key is '+key);
-                postData.append(key, s3Data.fields[key]);
+
+            for(key in s3Data){
+                    console.log('key is '+key);
+                    postData.append(key, s3Data[key]);
+                }
             }
             postData.append('file', file);
 
