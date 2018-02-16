@@ -17,6 +17,7 @@ from urlparse import urlparse
 from hashlib import sha1
 from django.views.decorators.csrf import csrf_exempt
 
+from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from django.http import JsonResponse
 from django.shortcuts import render
@@ -111,7 +112,7 @@ def sign_s3(request):
 
 @csrf_exempt
 def submit_form(request):
-    """
+
     username = request.form['username']
     full_name = request.form['full_name']
     avatar_url = request.form['avatar_url']
@@ -119,13 +120,18 @@ def submit_form(request):
     username = 'username'
     full_name = 'full_name'
     avatar_url = 'avatar_url'
+    """
     update_account(username,full_name,avatar_url)
     #return redirect(url_for('accounts/profile'))
     return render(request, 'accounts/profile.html')
 
 
 def update_account(username,full_name,avatar_url):
-    print 'account updated'
+    logger.debug('username is '+username)
+    logger.debug('full_name is '+full_name)
+    logger.debug('avatar_url is '+avatar_url)
+
+    return HttpResponse('username is '+username+', full_name is '+full_name+', avatar_url is '+avatar_url)
 
 """
 def profile(request):
