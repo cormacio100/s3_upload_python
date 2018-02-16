@@ -15,6 +15,7 @@
     <h2>Your information</h2>
 
     <form method="POST" action="/accounts/submit_form/">
+        {% csrf_token %}
       <input type="hidden" id="avatar-url" name="avatar-url" value="/static/media/default.png">
       <input type="text" name="username" placeholder="Username"><br>
       <input type="text" name="full-name" placeholder="Full name"><br><br>
