@@ -115,9 +115,9 @@ def sign_s3(request):
 @csrf_exempt
 def submit_form(request):
     logger.debug('welcome to SUBMIT_FORM')
-    username = request.form['username']
-    full_name = request.form['full_name']
-    avatar_url = request.form['avatar_url']
+    username = request.POST['username']
+    full_name = request.POST['full_name']
+    avatar_url = request.POST['avatar_url']
     """
     username = 'username'
     full_name = 'full_name'
