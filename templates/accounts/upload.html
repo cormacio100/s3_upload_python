@@ -47,9 +47,8 @@
             console.log(s3Data.fields);
 
             for(key in s3Data){
-                    console.log('key is '+key);
-                    postData.append(key, s3Data[key]);
-                }
+                console.log('key is '+key);
+                postData.append(key, s3Data[key]);
             }
             postData.append('file', file);
 
