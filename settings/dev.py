@@ -12,3 +12,28 @@ DATABASES = {
     }
 }
 
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'details': {
+            'format': '%(process)d %(filename)s %(funcName)s %(levelname)s %(lineno)d %(message)s',
+        },
+    },
+    'handlers': {
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': 'debug.log',
+            'formatter': 'details'
+        },
+    },
+    'loggers': {
+        'accounts.views': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+            'propagate': True
+        },
+    }
+}
+

@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
-#import env
+import env
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -113,10 +113,11 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
 
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
-MEDIA_URL = '/static/'
+MEDIA_URL = '/media/'
 
 AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID")
 AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY")
 S3_BUCKET = os.environ.get("S3_BUCKET")
 
 CORS_ORIGIN_ALLOW_ALL = True
+
