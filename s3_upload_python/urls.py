@@ -16,9 +16,13 @@ Including another URLconf
 from django.conf.urls import url,include
 from django.contrib import admin
 from accounts import views as acc_views
+from django.views.static import serve
+import settings
+import os
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^accounts/', include('accounts.urls')),
     url(r'^$', acc_views.get_index, name="home"),
+    url(r'^media/(?P<path>.*)$',serve,{'document_root':os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),'media')}),
 ]
