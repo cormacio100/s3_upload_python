@@ -1,1 +1,9 @@
--r requirements/staging.txt
+dj-database-url==0.4.2
+Django==1.11.10
+django-forms-bootstrap==3.1.0
+gunicorn==19.4.0
+parse==1.8.2
+Pillow==2.9.0
+pytz==2018.3
+six==1.11.0
+whitenoise==3.2

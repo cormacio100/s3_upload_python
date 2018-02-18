@@ -17,8 +17,19 @@ from django.conf.urls import url,include
 from django.contrib import admin
 from accounts import views as acc_views
 
+###################################################################
+#   For STORING and Displaying IMAGES UPLOADED by user
+###################################################################
+from django.views.static import serve
+from settings.base import MEDIA_ROOT
+
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^accounts/', include('accounts.urls')),
+    url(r'^posts/', include('posts.urls')),
     url(r'^$', acc_views.get_index, name="home"),
+
+    #   MAP A URL TO THE MEDIA_ROOT FOLDER FOR DISPLAYING IMAGES
+    url(r'^media/(?P<path>.*)$',serve,{'document_root':MEDIA_ROOT}),
 ]
